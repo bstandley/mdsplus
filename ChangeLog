@@ -1,4 +1,105 @@
-commit 717ccd7bef12501ef5a30af64215e09aaf52133d (HEAD, refs/heads/alpha)
+commit 84a1e13cddd94f1f32c2d801ee5b0e33d98505c7 (HEAD, refs/heads/alpha)
+Author: Gabriele Manduchi <gabriele.manduchi@igi.cnr.it>
+Date:   Wed Jun 24 15:22:00 2015 +0200
+
+    Remove experimental Continuous Update option
+
+commit af6fd5e919a7de4d5e73c0ba07053732dbdb437b
+Author: Gabriele Manduchi <gabriele.manduchi@igi.cnr.it>
+Date:   Wed Jun 24 12:08:06 2015 +0200
+
+    Propagate zoom notification to ALL signals
+
+commit c63f1cccb38952779b30867f1395a8dfa8929c6c
+Merge: 0888225 1a5de43
+Author: Gabriele Manduchi <gabriele.manduchi@igi.cnr.it>
+Date:   Wed Jun 24 11:34:59 2015 +0200
+
+    Merge branch 'alpha' of github.com:MDSplus/MDSplus into alpha
+
+commit 0888225841b031796724bcbfb3e3c6b4ffcedca2
+Author: Gabriele Manduchi <gabriele.manduchi@igi.cnr.it>
+Date:   Wed Jun 24 11:34:32 2015 +0200
+
+    Remove deadlock
+
+commit 1a5de434b0ba511df21fa8fd2ac554bf88735473 (tag: refs/tags/alpha_release-7-0-99, refs/remotes/origin/alpha, refs/remotes/origin/HEAD)
+Author: MDSplusBuilder <MDSplusBuilder@psfc.mit.edu>
+Date:   Tue Jun 23 22:25:29 2015 +0000
+
+    New ChangeLog
+
+commit 31c1c2ee73a1a57e2fcd798e43cb594316ad7cf0
+Author: Tom Fredian <twf@psfc.mit.edu>
+Date:   Tue Jun 23 14:37:03 2015 -0400
+
+    Add VS2013 build for VS import libs and MdsObjectsCppShr.so
+
+commit ed098fd777dbebcd2e340556c2bd7ba2cdd02e59
+Merge: 556aea7 5b0baa1
+Author: Tom Fredian <twf@psfc.mit.edu>
+Date:   Tue Jun 23 14:19:36 2015 -0400
+
+    Merge branch 'alpha' of https://github.com/MDSplus/mdsplus
+
+commit 556aea71a3114573660ca1e10aeaa485f76bd9fa
+Author: Tom Fredian <twf@psfc.mit.edu>
+Date:   Tue Jun 23 14:18:13 2015 -0400
+
+    Add Visual Studio 2013 project to build VS import libraries and build MdsObjectsCppShr-VS.dll
+
+commit 5b0baa142c021d8fc4fdc78d3b796a17be06d398
+Author: Gabriele Manduchi <gabriele.manduchi@igi.cnr.it>
+Date:   Tue Jun 23 17:36:50 2015 +0200
+
+    Fix search for properties file
+
+commit ae59ad087878fd60740d6152fc61fe9578d67066 (tag: refs/tags/alpha_release-7-0-98)
+Author: MDSplusBuilder <MDSplusBuilder@psfc.mit.edu>
+Date:   Fri Jun 19 22:22:42 2015 +0000
+
+    New ChangeLog
+
+commit a2f817e12e78c02714d8ed90fe0f4371d4602cc3
+Merge: b901ed7 cf57227
+Author: Brian Standley <brian@brianstandley.com>
+Date:   Fri Jun 19 14:28:38 2015 +0200
+
+    Merge pull request #9 from bstandley/feature-cygnet4k-fixes
+    
+    Fixes to CYGNET4K support based on testing at W7-X
+
+commit b901ed72ef51076180528d1d8ffcc6b9dd9f6bdf (tag: refs/tags/alpha_release-7-0-97)
+Author: MDSplusBuilder <MDSplusBuilder@psfc.mit.edu>
+Date:   Thu Jun 18 22:34:35 2015 +0000
+
+    New ChangeLog
+
+commit 86ddc9b4ed4a30cb2cb35184323a3d0887d00057
+Author: Tom Fredian <twf@psfc.mit.edu>
+Date:   Thu Jun 18 14:08:35 2015 -0400
+
+    Use static libxml2 and libz libraries on mingw builds to prevent incompatibilities with the zlib1.dll that ships with MATLAB. Also correct the jni includes used on mingw builds.
+
+commit cf572277a8a2ac68e4ccdcfbb2589fc43bc9e244
+Author: Brian Standley <brian@brianstandley.com>
+Date:   Thu Jun 18 17:51:59 2015 +0200
+
+    Fixes to CYGNET4K support based on testing at W7-X
+
+commit 69e0c273677b7f1536968519881dc363fc46f6f1
+Author: taliercio <cesare.taliercio@igi.cnr.it>
+Date:   Thu Jun 18 09:23:56 2015 +0200
+
+    Signal 2D 64bit time-base management added
+
+commit 17a4648e211ba79c1666e03dc0c5c148d61d5fbc (tag: refs/tags/alpha_release-7-0-96)
+Author: MDSplusBuilder <MDSplusBuilder@psfc.mit.edu>
+Date:   Wed Jun 17 22:23:17 2015 +0000
+
+    New ChangeLog
+
+commit 717ccd7bef12501ef5a30af64215e09aaf52133d
 Author: Tom Fredian <twf@psfc.mit.edu>
 Date:   Wed Jun 17 08:50:25 2015 -0400
 
@@ -16,7 +117,7 @@ Date:   Wed Jun 17 10:58:14 2015 +0200
 
     Fix LocalDataProvider
 
-commit 186115dddae883c45d0ea291a1095567d47c0684 (tag: refs/tags/alpha_release-7-0-95, refs/remotes/origin/alpha, refs/remotes/origin/HEAD)
+commit 186115dddae883c45d0ea291a1095567d47c0684 (tag: refs/tags/alpha_release-7-0-95)
 Author: MDSplusBuilder <MDSplusBuilder@psfc.mit.edu>
 Date:   Wed Jun 17 03:48:57 2015 +0000
 
