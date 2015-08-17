@@ -33,6 +33,7 @@ class jScopeWaveContainer
     extends WaveformContainer
     implements Printable
 {
+    static final long serialVersionUID = 4326578978461L;
     private static final int MAX_COLUMN = 4;
 
     DataProvider dp;
@@ -1286,7 +1287,7 @@ remove 28/06/2005
                         ph[k++] = (float) 1. / rows[j];
                     break;
                 }
-                ph[k] = (float) (w.wi.height / height);
+                ph[k] = (w.wi.height / height);
             }
         }
         invalidate();
@@ -1308,6 +1309,7 @@ remove 28/06/2005
         return (JFrame) c;
     }
 
+    @SuppressWarnings("rawtypes")
     public void SetDataServer(DataServerItem server_item, UpdateEventListener l) throws
         Exception
     {
@@ -1322,7 +1324,7 @@ remove 28/06/2005
             try
             {
                 Class cl = Class.forName("jScope."+server_item.class_name);
-                new_dp = (DataProvider) cl.newInstance();
+                new_dp = (DataProvider)cl.newInstance();
             }
             catch (Exception e)
             {
@@ -1657,7 +1659,7 @@ remove 28/06/2005
     public void SaveAsText(jScopeMultiWave w, boolean all)
     {
 
-        Vector panel = new Vector();
+        Vector<jScopeMultiWave> panel = new Vector<jScopeMultiWave>();
         MdsWaveInterface wi;
         jScopeMultiWave wave;
 	    
@@ -1673,8 +1675,7 @@ remove 28/06/2005
         {
             Point p = this.getWavePosition(w);
             if (p != null)
-                title = "Save signals on panel (" + p.x + ", " + p.y +
-                    ") in text format";
+                title = "Save signals on panel (" + p.x + ", " + p.y + ") in text format";
         }
         JFileChooser file_diag = new JFileChooser();
         if (save_as_txt_directory != null &&
@@ -1729,7 +1730,7 @@ remove 28/06/2005
                 if (all)
                 {
                     for (int i = 0; i < GetWaveformCount(); i++)
-                        panel.addElement(GetWavePanel(i));
+                        panel.addElement((jScopeMultiWave)GetWavePanel(i));
 
                 }
                 else
@@ -1748,7 +1749,7 @@ remove 28/06/2005
                         s = "%";
                         for (int k = 0; k < panel.size(); k++)
                         {
-                            wave = (jScopeMultiWave) panel.elementAt(k);
+                            wave = panel.elementAt(k);
                             wi = (MdsWaveInterface) wave.wi;
 
                             if (wi == null || wi.signals == null)
@@ -1782,7 +1783,7 @@ remove 28/06/2005
                                 for (int u = 0; u < 52 - s.length(); u++)
                                     space.append(' ');
                                 out.write(space.toString());
-				s="";
+				                s="";
                             }
                         }
                         out.newLine();
@@ -1795,7 +1796,7 @@ remove 28/06/2005
                     for (int k = 0; k < panel.size(); k++)
                     {
                         more_point[k] = true;
-                        wave = (jScopeMultiWave) panel.elementAt(k);
+                        wave = panel.elementAt(k);
                         wi = (MdsWaveInterface) wave.wi;
                         if (wi == null || wi.signals == null)
                             continue;
@@ -1809,7 +1810,7 @@ remove 28/06/2005
                         g_more_point = false;
                         for (int k = 0; k < panel.size(); k++)
                         {
-                            wave = (jScopeMultiWave) panel.elementAt(k);
+                            wave = panel.elementAt(k);
                             wi = (MdsWaveInterface) wave.wi;
 
                             if (wi == null || wi.signals == null)
