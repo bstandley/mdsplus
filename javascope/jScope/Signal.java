@@ -1843,6 +1843,7 @@ public class Signal implements WaveDataListener
      */
     public void AutoscaleX()
     {
+        if (DEBUG.ON){System.out.println("Signal.AutoscaleX()");}
         if (type == Signal.TYPE_2D  && (mode2D == Signal.MODE_IMAGE || mode2D == Signal.MODE_CONTOUR))
         {
             xmax = this.x2D_max;
@@ -1873,6 +1874,7 @@ public class Signal implements WaveDataListener
      */
     public void AutoscaleY()
     {
+        if (DEBUG.ON){System.out.println("Signal.AutoscaleY()");}
         if (type == Signal.TYPE_2D)
         {
             if(mode2D == Signal.MODE_IMAGE || mode2D == Signal.MODE_CONTOUR)
@@ -1926,6 +1928,7 @@ public class Signal implements WaveDataListener
      */
     public void AutoscaleY(double min, double max)
     {
+        if (DEBUG.ON){System.out.println("Signal.AutoscaleY("+min+", "+max+")");}
         if (type == Signal.TYPE_2D && (mode2D == Signal.MODE_IMAGE || mode2D == Signal.MODE_CONTOUR))
         {
             ymin = this.y2D_min;
@@ -1994,6 +1997,7 @@ public class Signal implements WaveDataListener
     
     void checkData(double xMin, double xMax) throws Exception
     {
+        if (DEBUG.ON){System.out.println("Signal.checkData("+xMin+", "+xMax+")");}
         int numDimensions = data.getNumDimension();
         if(numDimensions == 1)
         {
