@@ -385,7 +385,7 @@ public class Signal implements WaveDataListener
             //Skip disjoint regions with lower bounds
             if(newReg.upperBound < newReg.lowerBound)
             {
-                System.err.println("INTERNAL ERROR: LOWER BOUND > UPPER BOUND!!!!!");
+                System.err.println("# INTERNAL ERROR: LOWER BOUND > UPPER BOUND!!!!!");
             }
             
             
@@ -467,7 +467,7 @@ public class Signal implements WaveDataListener
         {
             if(newReg.upperBound < newReg.lowerBound)
             {
-                System.err.println("INTERNAL ERROR IN APPEND: LOWER BOUND > UPPER BOUND!!!!!");
+                System.err.println("# INTERNAL ERROR IN APPEND: LOWER BOUND > UPPER BOUND!!!!!");
             }
             if(lowResRegions.size() == 0)
             {
@@ -481,7 +481,7 @@ public class Signal implements WaveDataListener
             {
                 if(lastReg.upperBound > newReg.lowerBound)
                 {
-                    //System.err.println("Warning: INTERNAL ERROR IN APPEND: NEW.LOWERBOUND < LAST.UPPERBOUND");
+                    //System.err.println("# Warning: INTERNAL ERROR IN APPEND: NEW.LOWERBOUND < LAST.UPPERBOUND");
                     newReg.lowerBound = lastReg.upperBound;
                 }
                 lowResRegions.addElement(newReg);
@@ -549,7 +549,7 @@ public class Signal implements WaveDataListener
             data.addWaveDataListener(this);
         }catch(Exception exc)
         {
-            System.out.println("Signal exception: " + exc);
+            System.err.println("# Signal exception: " + exc);
         }
    }
     

@@ -452,7 +452,7 @@ public class MdsConnection
         sock = new Socket(host,port);
         sock.setTcpNoDelay(true);
         dis = new BufferedInputStream(sock.getInputStream());
-      //dis = new DataInputStream(new BufferedInputStream(sock.getInputStream()));
+        //dis = new DataInputStream(new BufferedInputStream(sock.getInputStream()));
         dos = new DataOutputStream(new BufferedOutputStream(sock.getOutputStream()));
     }        
     
@@ -463,7 +463,7 @@ public class MdsConnection
 	    {
 	        if(provider != null)
 	        {
-                    connectToServer();
+                connectToServer();
 	            MdsMessage message = new MdsMessage(user);
 	            message.useCompression(use_compression);
 	            message.Send(dos);
