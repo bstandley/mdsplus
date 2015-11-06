@@ -74,6 +74,7 @@ public class MdsConnection
             public void run()
             {
                 setName("Process Mds Event Thread");
+                if (jScopeFacade.busy()) return;
                 if( eventName != null )
                         dispatchUpdateEvent(eventName);
                 else
@@ -83,14 +84,14 @@ public class MdsConnection
 
             public void SetEventid(int id)
             {
-                    //System.out.println("Received Event ID " + id);
+                    if (DEBUG.ON){System.out.println("Received Event ID " + id);}
                     eventId = id;
                     eventName = null;
             }
 
             public void SetEventName(String name)
             {
-//                    System.out.println("Received Event Name " + name);
+                    if (DEBUG.ON){System.out.println("Received Event Name " + name);}
                     eventId = -1;
                     eventName = name;
             }
