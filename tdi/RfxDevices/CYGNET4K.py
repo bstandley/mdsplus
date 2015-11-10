@@ -272,11 +272,11 @@ class CYGNET4K(Device):
                 CYGNET4K.raptorLib.epixGetTemp(c_int(1), c_int(0), byref(pcbTemp), byref(cmosTemp), byref(currTime))
                 self.device.pcb_temp.putRow(1024, Float32(pcbTemp), Uint64(currTime))
                 self.device.cmos_temp.putRow(1024, Float32(cmosTemp), Uint64(currTime))
-                curr_time_ms = int((currTime.value + startTime))
+                curr_time_ns = int((currTime.value + startTime)*1e6)
                 if (self.hasTrend):
                     tree = Tree(self.trendTree, self.trendShot)
-                    tree.getNode(self.trendPcb).putRow(1024, Float32(pcbTemp), Uint64(curr_time_ms))
-                    tree.getNode(self.trendCmos).putRow(1024, Float32(cmosTemp), Uint64(curr_time_ms))
+                    tree.getNode(self.trendPcb).putRow(1024, Float32(pcbTemp), Uint64(curr_time_ns))
+                    tree.getNode(self.trendCmos).putRow(1024, Float32(cmosTemp), Uint64(curr_time_ns))
                 sleep(0.5)
             return 0
 
