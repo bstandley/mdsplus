@@ -64,8 +64,7 @@ class AsdexDataProvider extends MdsDataProvider
             else
             {
                 _jscope_set = true;
-                expr = "( _jscope_" + v_idx + " = (" + in_y +
-                    "), shape(_jscope_" + v_idx + "))";
+                expr = "( _jscope_" + v_idx + " = (" + in_y + "), shape(_jscope_" + v_idx + "))";
                 var_idx++;
             }
             int shape[] = GetNumDimensions(expr);
@@ -118,31 +117,24 @@ class AsdexDataProvider extends MdsDataProvider
 
         private double[] encodeTimeBase(String expr)
         {
-            try
-            {
-                double t0 = GetFloat("dscptr(window_of(dim_of(" + expr + ")),2)");
-                int startIdx[] = GetIntArray("begin_of(window_of(dim_of(" +
-                                             expr + ")))");
-                int endIdx[] = GetIntArray("end_of(window_of(dim_of(" + expr +
-                                           ")))");
+            try{
+                double t0 = GetFloat("dscptr(window_of(dim_of(" + expr + ")))");
+                int startIdx[] = GetIntArray("begin_of(window_of(dim_of(" + expr + ")))");
+                int endIdx[] = GetIntArray("end_of(window_of(dim_of(" + expr + ")))");
 
                 if (startIdx.length != 1 || endIdx.length != 1)
                     return null;
 
                 int numPoint = endIdx[0] - startIdx[0] + 1;
-                double delta[] = GetDoubleArray("slope_of(axis_of(dim_of(" +
-                                                expr + ")))");
+                double delta[] = GetDoubleArray("slope_of(axis_of(dim_of(" + expr + ")))");
                 double begin[] = null;
                 double end[] = null;
                 double curr;
-                double firstTime[] = GetDoubleArray("i_to_x(dim_of(" + expr +
-                    ")," + startIdx[0] + ")");
+                double firstTime[] = GetDoubleArray("i_to_x(dim_of(" + expr + ")," + startIdx[0] + ")");
                 try
                 {
-                    begin = GetDoubleArray("begin_of(axis_of(dim_of(" + expr +
-                                           ")))");
-                    end = GetDoubleArray("end_of(axis_of(dim_of(" + expr +
-                                         ")))");
+                    begin = GetDoubleArray("begin_of(axis_of(dim_of(" + expr + ")))");
+                    end = GetDoubleArray("end_of(axis_of(dim_of(" + expr + ")))");
                 }
                 catch (IOException e)
                 {}
@@ -176,12 +168,8 @@ class AsdexDataProvider extends MdsDataProvider
                         }
                     }
                     return out;
-
                 }
-            }
-            catch (Exception exc)
-            {}
-            ; //System.out.println(exc.getMessage());}
+            }catch (Exception exc){if(DEBUG.ON){System.out.println("# encodeTimeBase: "+exc.getMessage());}}
             return null;
 
         }
@@ -194,7 +182,7 @@ class AsdexDataProvider extends MdsDataProvider
             {
                 if (currXData == null)
                     currXData = GetXRealData();
-                if (!currXData.isDouble())
+                if (!currXData.isDouble)
                     return null;
                 return currXData.getDoubleArray();
             }
@@ -210,7 +198,7 @@ class AsdexDataProvider extends MdsDataProvider
             {
                 if (currXData == null)
                     currXData = GetXRealData();
-                if (!currXData.isLong())
+                if (!currXData.isLong)
                     return null;
                 return currXData.getLongArray();
             }
